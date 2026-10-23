@@ -1,1 +1,178 @@
 
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 17th Birthday, Faiza! 💗</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Trebuchet MS', sans-serif;
+      background: #fff4f7;
+      color: #5b4250;
+      text-align: center;
+    }
+
+    header {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 20px;
+      background: linear-gradient(135deg, #fbd5e1, #e8d9ff);
+    }
+
+    h1 {
+      font-size: clamp(2.3rem, 8vw, 4rem);
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.8;
+    }
+
+    button {
+      background: #c77da5;
+      color: white;
+      border: none;
+      padding: 13px 24px;
+      border-radius: 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .message {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px #d9b8c633;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .photo {
+      background: white;
+      padding: 10px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px #00000010;
+    }
+
+    .photo img {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .photo p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+
+    footer {
+      padding: 25px;
+      background: #f5d9e5;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div style="font-size: 3rem;">🎂💗🎀</div>
+    <h1>Happy 17th Birthday, Faiza!</h1>
+    <p>A little website filled with our memories ✨</p>
+    <button onclick="openMessage()">Open your little surprise 💌</button>
+  </header>
+
+  <section id="letter" hidden>
+    <h2>A Little Letter for You 💌</h2>
+    <div class="message">
+      <p>
+        Happy birthday, Faiza! 💗
+        <br>
+        Semoga di umur 17 ini kamu selalu dikelilingi
+        kebahagiaan, orang-orang baik, dan banyak hal indah.
+        <br>
+        Thank you for being part of my memories.
+        Here's to more moments together! 🥹✨
+      </p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Our Little Memories 📸</h2>
+    <p>Some moments I want to keep forever.</p>
+
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <footer>
+    Made with love, just for Faiza 💗
+  </footer>
+
+  <script>
+    // Ganti nama file foto sesuai foto yang kamu upload.
+    const photos = [
+      {
+        src: "images/foto1.jpg",
+        caption: "Kita waktu itu 📸"
+      },
+      {
+        src: "images/foto2.jpg",
+        caption: "A little memory 🌷"
+      },
+      {
+        src: "images/foto3.jpg",
+        caption: "One of my favorites 💗"
+      },
+      {
+        src: "images/foto4.jpg",
+        caption: "More memories to come ✨"
+      }
+    ];
+
+    function openMessage() {
+      const letter = document.getElementById("letter");
+      letter.hidden = false;
+      letter.scrollIntoView({ behavior: "smooth" });
+    }
+
+    const gallery = document.getElementById("gallery");
+
+    photos.forEach((photo) => {
+      const card = document.createElement("div");
+      card.className = "photo";
+
+      const img = document.createElement("img");
+      img.src = photo.src;
+      img.alt = photo.caption;
+      img.loading = "lazy";
+
+      const caption = document.createElement("p");
+      caption.textContent = photo.caption;
+
+      card.append(img, caption);
+      gallery.appendChild(card);
+    });
+  </script>
+</body>
+</html>
